@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+     
+     <!-- Font Awesome Link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Link css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- logo -->
+    <link rel="icon" href="{{ url_for('static', filename='heart.jpeg') }}">
+
+</head>
+<body>
+     <!-- === Header start === -->
+     <header>
+     
+      <a style="font-size: 35px; color:white ;">MDPS</a>
+        <div id="menu-bar" class="fas fa-hamburger"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <!-- <li><a href="{{ url_for('diabetes') }}">Diabetes</a></li> -->
+                <li><a href="{{ url_for('heart') }}">Heart</a></li>
+                <li><a href="{{ url_for('liver') }}">Liver</a></li>
+                <li><a href="{{ url_for('cancer') }}">Cancer</a></li>
+                <li><a href="{{ url_for('kidney') }}">Kidney</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <!-- === Header End === -->
+    <h2 class="title">Heart Disease Prediction</h2>
+
+    <div class="card">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <input type="hidden" name="model_name" value="heart">
+
+            <label for="age">Age:</label>
+            <input class="form-input" type="number" name="age" id="age" placeholder="e.g., 37" required><br>
+
+            <label for="sex">Sex (Male: 1, Female: 0):</label>
+            <input class="form-input" type="number" name="sex" id="sex" placeholder="e.g., 1" required min="0" max="1"><br>
+
+            <label for="cp">Chest Pain Type:</label>
+            <input class="form-input" type="number" name="cp" id="cp" placeholder="e.g., 1" required><br>
+
+            <label for="trestbps">Resting Blood Pressure (mm Hg):</label>
+            <input class="form-input" type="number" name="trestbps" id="trestbps" placeholder="e.g., 130" required><br>
+
+            <label for="chol">Serum Cholesterol (mg/dl):</label>
+            <input class="form-input" type="number" name="chol" id="chol" placeholder="e.g., 250" required><br>
+
+            <label for="fbs">Fasting Blood Sugar > 120 mg/dl (1 = true; 0 = false):</label>
+            <input class="form-input" type="number" name="fbs" id="fbs" placeholder="e.g., 0" required min="0" max="1"><br>
+
+            <label for="restecg">Resting Electrocardiographic Results:</label>
+            <input class="form-input" type="number" name="restecg" id="restecg" placeholder="e.g., 1" required><br>
+
+            <label for="thalach">Maximum Heart Rate Achieved:</label>
+            <input class="form-input" type="number" name="thalach" id="thalach" placeholder="e.g., 187" required><br>
+
+            <label for="exang">Exercise Induced Angina (1 = yes; 0 = no):</label>
+            <input class="form-input" type="number" name="exang" id="exang" placeholder="e.g., 0" required min="0" max="1"><br>
+
+            <label for="oldpeak">ST Depression Induced by Exercise Relative to Rest:</label>
+            <input class="form-input" type="number" name="oldpeak" id="oldpeak" placeholder="e.g., 3.5" required step="0.1"><br>
+
+            <label for="slope">Slope of the Peak Exercise ST Segment:</label>
+            <input class="form-input" type="number" name="slope" id="slope" placeholder="e.g., 0" required><br>
+
+            <label for="ca">Number of Major Vessels (0-3) Colored by Fluoroscopy:</label>
+            <input class="form-input" type="number" name="ca" id="ca" placeholder="e.g., 0" required><br>
+
+            <label for="thal">Thalassemia (3 = normal; 6 = fixed defect; 7 = reversible defect):</label>
+            <input class="form-input" type="number" name="thal" id="thal" placeholder="e.g., 2" required><br>
+
+            <input type="submit" class="my-cta-button" value="Predict">
+        </form>
+    </div>
+
+    <!-- ===== Footer ===== -->
+    <div class="footer">
+        <p>Developed by Abhishek, Aditya & Dishan</p>
+    </div>
+    <!-- Jquery Link -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes Prediction</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="icon" href="{{ url_for('static', filename='diabetes.jpg') }}" />
+</head>
+<body>
+    <header>
+        <a style="font-size: 35px; color:white ;">MDPS</a>
+        <div id="menu-bar" class="fas fa-hamburger"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('diabetes') }}">Diabetes</a></li>
+                <li><a href="{{ url_for('heart') }}">Heart</a></li>
+                <li><a href="{{ url_for('liver') }}">Liver</a></li>
+                <li><a href="{{ url_for('cancer') }}">Cancer</a></li>
+                <li><a href="{{ url_for('kidney') }}">Kidney</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2 class="title">Diabetes Prediction</h2>
+
+    <div class="card">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <input type="hidden" name="model_name" value="diabetes">
+
+            <label for="pregnancies">Pregnancies:</label>
+            <input class="form-input" type="number" name="pregnancies" id="pregnancies" placeholder="e.g., 0" required><br>
+
+            <label for="glucose">Glucose (mg/dL):</label>
+            <input class="form-input" type="number" name="glucose" id="glucose" placeholder="e.g., 80" required step="0.1"><br>
+
+            <label for="bloodpressure">Blood Pressure (mmHg):</label>
+            <input class="form-input" type="number" name="bloodpressure" id="bloodpressure" placeholder="e.g., 80" required><br>
+
+            <label for="skinthickness">Skin Thickness (mm):</label>
+            <input class="form-input" type="number" name="skinthickness" id="skinthickness" placeholder="e.g., 20" required><br>
+
+            <label for="insulin">Insulin Level (IU/mL):</label>
+            <input class="form-input" type="number" name="insulin" id="insulin" placeholder="e.g., 80" required><br>
+
+            <label for="bmi">Body Mass Index (kg/m²):</label>
+            <input class="form-input" type="number" name="bmi" id="bmi" placeholder="e.g., 23.1" required step="0.1"><br>
+
+            <label for="dpf">Diabetes Pedigree Function:</label>
+            <input class="form-input" type="number" name="dpf" id="dpf" placeholder="e.g., 0.52" required step="0.01"><br>
+
+            <label for="age">Age (years):</label>
+            <input class="form-input" type="number" name="age" id="age" placeholder="e.g., 34" required><br>
+
+            <input type="submit" class="my-cta-button" value="Predict">
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>Developed by Abhishek, Aditya & Dishan</p>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html> -->

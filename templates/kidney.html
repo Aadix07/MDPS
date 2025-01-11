@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney Disease Prediction</title>
+    <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+     integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+     
+     <!-- Font Awesome Link -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Link css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- logo -->
+    <link rel="icon" href="{{ url_for('static', filename='kidney.jpg') }}">
+</head>
+<body>
+     <!-- === Header start === -->
+     <header>
+     
+      <a style="font-size: 35px; color:white ;">MDPS</a>
+       <div id="menu-bar" class="fas fa-hamburger"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <!-- <li><a href="{{ url_for('diabetes') }}">Diabetes</a></li> -->
+                <li><a href="{{ url_for('heart') }}">Heart</a></li>
+                <li><a href="{{ url_for('liver') }}">Liver</a></li>
+                <li><a href="{{ url_for('cancer') }}">Cancer</a></li>
+                <li><a href="{{ url_for('kidney') }}">Kidney</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- === Header End === -->
+    <h2 class="title">Kidney Disease Prediction</h2>
+
+    <div class="card">
+        <form action="{{ url_for('predict') }}" method="POST">
+            <input type="hidden" name="model_name" value="kidney">
+
+            <label for="age">Age:</label>
+            <input class="form-input" type="number" name="age" id="age" placeholder="e.g., 48" required><br>
+
+            <label for="bp">Blood Pressure:</label>
+            <input class="form-input" type="number" name="bp" id="bp" placeholder="e.g., 70.0" required step="0.1"><br>
+
+            <label for="al">Albumin:</label>
+            <input class="form-input" type="number" name="al" id="al" placeholder="e.g., 4.0" required step="0.1"><br>
+
+            <!-- <label for="su">Sugar:</label>
+            <input class="form-input" type="number" name="su" id="su" placeholder="e.g., 0.0" required step="0.1"><br> -->
+
+            <label for="rbc">Red Blood Cells (normal:1, abnormal:0):</label>
+            <input class="form-input" type="number" name="rbc" id="rbc" placeholder="e.g., 0" required min="0" max="1"><br>
+
+            <label for="pc">Pus Cell (normal:1, abnormal:0):</label>
+            <input class="form-input" type="number" name="pc" id="pc" placeholder="e.g., 1" required min="0" max="1"><br>
+
+            <label for="pcc">Pus Cell Clumps (present:1, notpresent:0):</label>
+            <input class="form-input" type="number" name="pcc" id="pcc" placeholder="e.g., 1" required min="0" max="1"><br>
+
+            <!-- <label for="ba">Bacteria (present:1, notpresent:0):</label>
+            <input class="form-input" type="number" name="ba" id="ba" placeholder="e.g., 0" required min="0" max="1"><br> -->
+
+            <label for="bgr">Blood Glucose Random:</label>
+            <input class="form-input" type="number" name="bgr" id="bgr" placeholder="e.g., 117.0" required step="0.1"><br>
+
+            <label for="bu">Blood Urea:</label>
+            <input class="form-input" type="number" name="bu" id="bu" placeholder="e.g., 56.0" required step="0.1"><br>
+
+            <label for="sc">Serum Creatinine:</label>
+            <input class="form-input" type="number" name="sc" id="sc" placeholder="e.g., 3.8" required step="0.1"><br>
+
+            <label for="pot">Potassium:</label>
+            <input class="form-input" type="number" name="pot" id="pot" placeholder="e.g., 2.5" required step="0.1"><br>
+
+            <!-- <label for="wc">White Blood Cell Count:</label>
+            <input class="form-input" type="number" name="wc" id="wc" placeholder="e.g., 6700" required><br> -->
+
+            <label for="htn">Hypertension (yes:1, no:0):</label>
+            <input class="form-input" type="number" name="htn" id="htn" placeholder="e.g., 1" required min="0" max="1"><br>
+
+            <label for="dm">Diabetes Mellitus (yes:1, no:0):</label>
+            <input class="form-input" type="number" name="dm" id="dm" placeholder="e.g., 0" required min="0" max="1"><br>
+
+            <!-- <label for="cad">Coronary Artery Disease (yes:1, no:0):</label>
+            <input class="form-input" type="number" name="cad" id="cad" placeholder="e.g., 0" required min="0" max="1"><br> -->
+
+            <!-- <label for="pe">Pedal Edema (yes:1, no:0):</label>
+            <input class="form-input" type="number" name="pe" id="pe" placeholder="e.g., 1" required min="0" max="1"><br> -->
+
+            <label for="ane">Anemia (yes:1, no:0):</label>
+            <input class="form-input" type="number" name="ane" id="ane" placeholder="e.g., 1" required min="0" max="1"><br>
+
+            <input type="submit" class="my-cta-button" value="Predict">
+        </form>
+    </div>
+
+    <!-- ===== Footer ===== -->
+    <div class="footer">
+        <p>Developed by Abhishek, Aditya & Dishan</p>
+    </div>
+    <!-- Jquery Link -->
+    <script src="{{ url_for('static', filename='main.js') }}"></script>    
+</body>
+</html>
