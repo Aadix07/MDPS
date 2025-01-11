@@ -29,6 +29,6 @@
 ## Visit website of [MDPS system](https://multiple-disease-predictor1.herokuapp.com) to know more.
 
 
-## Chatbot Activation:  $env:GOOGLE_API_KEY = "AIzaSyA2Soj9WzSkdwrL5UvSHamDnuq4vY5O4cQ" 
+
 
 ## Thank you for visiting :-)
